@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('.board img').draggable({revert: true, revertDuration: 0});
-    $('.extra img').draggable({
+    $('.extra img:not(.trash)').draggable({
         revert: true, 
         revertDuration: 0, 
         helper: 'clone'});
