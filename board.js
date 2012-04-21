@@ -12,4 +12,10 @@ $(document).ready(function() {
             $(this).empty().append(toPlace);
         }
     });
+
+    $('img.trash').droppable({
+        drop: function(event, ui) {
+            ui.draggable.remove();
+        }
+    });
 });
