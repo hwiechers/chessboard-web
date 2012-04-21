@@ -15,7 +15,9 @@ $(document).ready(function() {
 
     $('img.trash').droppable({
         drop: function(event, ui) {
-            ui.draggable.remove();
+            if (ui.draggable.closest('.board').length > 0) {
+                ui.draggable.remove();
+            }
         }
     });
 });
