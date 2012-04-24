@@ -31,25 +31,11 @@
                 margin: 0;
             }
 
-            .b1, .d1, .f1, .h1,
-            .a2, .c2, .e2, .g2,
-            .b3, .d3, .f3, .h3,
-            .a4, .c4, .e4, .g4,
-            .b5, .d5, .f5, .h5,
-            .a6, .c6, .e6, .g6,
-            .b7, .d7, .f7, .h7, 
-            .a8, .c8, .e8, .g8 {
+            .light.square {
                 background: #ffce9e;
             }
 
-            .a1, .c1, .e1, .g1,
-            .b2, .d2, .f2, .h2,
-            .a3, .c3, .e3, .g3,
-            .b4, .d4, .f4, .h4,
-            .a5, .c5, .e5, .g5,
-            .b6, .d6, .f6, .h6,
-            .a7, .c7, .e7, .g7,
-            .b8, .d8, .f8, .h8 {
+            .dark.square {
                 background: #d18b47;
             }
 
@@ -64,84 +50,84 @@
     <body>
         <table class="board" cellspacing="0" cellpadding=0>
             <tr>
-                <td class="a8"><img src="images/Chess_rdt45.svg"></td>
-                <td class="b8"><img src="images/Chess_ndt45.svg"></td>
-                <td class="c8"><img src="images/Chess_bdt45.svg"></td>
-                <td class="d8"><img src="images/Chess_qdt45.svg"></td>
-                <td class="e8"><img src="images/Chess_kdt45.svg"></td>
-                <td class="f8"><img src="images/Chess_bdt45.svg"></td>
-                <td class="g8"><img src="images/Chess_ndt45.svg"></td>
-                <td class="h8"><img src="images/Chess_rdt45.svg"></td>
+                <td class="light square" data-square="a8"><img src="images/Chess_rdt45.svg"></td>
+                <td class="dark square"  data-square="b8"><img src="images/Chess_ndt45.svg"></td>
+                <td class="light square" data-square="c8"><img src="images/Chess_bdt45.svg"></td>
+                <td class="dark square"  data-square="d8"><img src="images/Chess_qdt45.svg"></td>
+                <td class="light square" data-square="e8"><img src="images/Chess_kdt45.svg"></td>
+                <td class="dark square"  data-square="f8"><img src="images/Chess_bdt45.svg"></td>
+                <td class="light square" data-square="g8"><img src="images/Chess_ndt45.svg"></td>
+                <td class="dark square"  data-square="h8"><img src="images/Chess_rdt45.svg"></td>
             </tr>
             <tr>
-                <td class="a7"><img src="images/Chess_pdt45.svg"></td>
-                <td class="b7"><img src="images/Chess_pdt45.svg"></td>
-                <td class="c7"><img src="images/Chess_pdt45.svg"></td>
-                <td class="d7"><img src="images/Chess_pdt45.svg"></td>
-                <td class="e7"><img src="images/Chess_pdt45.svg"></td>
-                <td class="f7"><img src="images/Chess_pdt45.svg"></td>
-                <td class="g7"><img src="images/Chess_pdt45.svg"></td>
-                <td class="h7"><img src="images/Chess_pdt45.svg"></td>
+                <td class="dark square"  data-square="a7"><img src="images/Chess_pdt45.svg"></td>
+                <td class="light square" data-square="b7"><img src="images/Chess_pdt45.svg"></td>
+                <td class="dark square"  data-square="c7"><img src="images/Chess_pdt45.svg"></td>
+                <td class="light square" data-square="d7"><img src="images/Chess_pdt45.svg"></td>
+                <td class="dark square"  data-square="e7"><img src="images/Chess_pdt45.svg"></td>
+                <td class="light square" data-square="f7"><img src="images/Chess_pdt45.svg"></td>
+                <td class="dark square"  data-square="g7"><img src="images/Chess_pdt45.svg"></td>
+                <td class="light square" data-square="h7"><img src="images/Chess_pdt45.svg"></td>
             </tr>
             <tr>
-                <td class="a6"></td>
-                <td class="b6"></td>
-                <td class="c6"></td>
-                <td class="d6"></td>
-                <td class="e6"></td>
-                <td class="f6"></td>
-                <td class="g6"></td>
-                <td class="h6"></td>
+                <td class="light square" data-square="a6"></td>
+                <td class="dark square"  data-square="b6"></td>
+                <td class="light square" data-square="c6"></td>
+                <td class="dark square"  data-square="d6"></td>
+                <td class="light square" data-square="e6"></td>
+                <td class="dark square"  data-square="f6"></td>
+                <td class="light square" data-square="g6"></td>
+                <td class="dark square"  data-square="h6"></td>
             </tr>
             <tr>
-                <td class="a5"></td>
-                <td class="b5"></td>
-                <td class="c5"></td>
-                <td class="d5"></td>
-                <td class="e5"></td>
-                <td class="f5"></td>
-                <td class="g5"></td>
-                <td class="h5"></td>
+                <td class="dark square"  data-square="a5"></td>
+                <td class="light square" data-square="b5"></td>
+                <td class="dark square"  data-square="c5"></td>
+                <td class="light square" data-square="d5"></td>
+                <td class="dark square"  data-square="e5"></td>
+                <td class="light square" data-square="f5"></td>
+                <td class="dark square"  data-square="g5"></td>
+                <td class="light square" data-square="h4"></td>
             </tr>
             <tr>
-                <td class="a4"></td>
-                <td class="b4"></td>
-                <td class="c4"></td>
-                <td class="d4"></td>
-                <td class="e4"></td>
-                <td class="f4"></td>
-                <td class="g4"></td>
-                <td class="h4"></td>
+                <td class="light square" data-square="a4"></td>
+                <td class="dark square"  data-square="b4"></td>
+                <td class="light square" data-square="c4"></td>
+                <td class="dark square"  data-square="d4"></td>
+                <td class="light square" data-square="e4"></td>
+                <td class="dark square"  data-square="f4"></td>
+                <td class="light square" data-square="g4"></td>
+                <td class="dark square"  data-square="h4"></td>
             </tr>
             <tr>
-                <td class="a3"></td>
-                <td class="b3"></td>
-                <td class="c3"></td>
-                <td class="d3"></td>
-                <td class="e3"></td>
-                <td class="f3"></td>
-                <td class="g3"></td>
-                <td class="h3"></td>
+                <td class="dark square"  data-square="a3"></td>
+                <td class="light square" data-square="b3"></td>
+                <td class="dark square"  data-square="c3"></td>
+                <td class="light square" data-square="d3"></td>
+                <td class="dark square"  data-square="e3"></td>
+                <td class="light square" data-square="f3"></td>
+                <td class="dark square"  data-square="g3"></td>
+                <td class="light square" data-square="h3"></td>
             </tr>
             <tr>
-                <td class="a2"><img src="images/Chess_plt45.svg"></td>
-                <td class="b2"><img src="images/Chess_plt45.svg"></td>
-                <td class="c2"><img src="images/Chess_plt45.svg"></td>
-                <td class="d2"><img src="images/Chess_plt45.svg"></td>
-                <td class="e2"><img src="images/Chess_plt45.svg"></td>
-                <td class="f2"><img src="images/Chess_plt45.svg"></td>
-                <td class="g2"><img src="images/Chess_plt45.svg"></td>
-                <td class="h2"><img src="images/Chess_plt45.svg"></td>
+                <td class="light square" data-square="a2"><img src="images/Chess_plt45.svg"></td>
+                <td class="dark square"  data-square="b2"><img src="images/Chess_plt45.svg"></td>
+                <td class="light square" data-square="c2"><img src="images/Chess_plt45.svg"></td>
+                <td class="dark square"  data-square="d2"><img src="images/Chess_plt45.svg"></td>
+                <td class="light square" data-square="e2"><img src="images/Chess_plt45.svg"></td>
+                <td class="dark square"  data-square="f2"><img src="images/Chess_plt45.svg"></td>
+                <td class="light square" data-square="g2"><img src="images/Chess_plt45.svg"></td>
+                <td class="dark square"  data-square="h2"><img src="images/Chess_plt45.svg"></td>
             </tr>
             <tr>
-                <td class="a1"><img src="images/Chess_rlt45.svg"></td>
-                <td class="b1"><img src="images/Chess_nlt45.svg"></td>
-                <td class="c1"><img src="images/Chess_blt45.svg"></td>
-                <td class="d1"><img src="images/Chess_qlt45.svg"></td>
-                <td class="e1"><img src="images/Chess_klt45.svg"></td>
-                <td class="f1"><img src="images/Chess_blt45.svg"></td>
-                <td class="g1"><img src="images/Chess_nlt45.svg"></td>
-                <td class="h1"><img src="images/Chess_rlt45.svg"></td>
+                <td class="dark square"  data-square="a1"><img src="images/Chess_rlt45.svg"></td>
+                <td class="light square" data-square="b1"><img src="images/Chess_nlt45.svg"></td>
+                <td class="dark square"  data-square="c1"><img src="images/Chess_blt45.svg"></td>
+                <td class="light square" data-square="d1"><img src="images/Chess_qlt45.svg"></td>
+                <td class="dark square"  data-square="e1"><img src="images/Chess_klt45.svg"></td>
+                <td class="light square" data-square="f1"><img src="images/Chess_blt45.svg"></td>
+                <td class="dark square"  data-square="g1"><img src="images/Chess_nlt45.svg"></td>
+                <td class="light square" data-square="h1"><img src="images/Chess_rlt45.svg"></td>
             </tr>
         </table>
 
