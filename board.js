@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    var undoStack = [];
+
     $('.board img').draggable({revert: true, revertDuration: 0});
     $('.extra img:not(.trash)').draggable({
         revert: true, 
@@ -6,10 +8,33 @@ $(document).ready(function() {
         helper: 'clone'});
     $('.board td').droppable({
         drop: function(event, ui) {
+            var draggable = ui.draggable;
+
+            var $this = $(this);
+            var thisSquare = $this.data('square');
+
+            var undoEntry = [];
+            undoEntry.push({
+                piece:draggable.data('piece'),
+                from:draggable.closest('.square').data('square'),
+                to:thisSquare});
+
+            var oldPiece = $this.children('img');
+            if (oldPiece.length > 0) {
+                undoEntry.push({
+                    piece:oldPiece.data('piece'),
+                    from:thisSquare,
+                    to:null});
+                oldPiece.remove();
+            }
+
             var toPlace = (ui.draggable.closest('.extra').length > 0 
                            ? ui.draggable.clone()  
                            : ui.draggable); 
-            $(this).empty().append(toPlace);
+            $this.append(toPlace);
+
+            undoStack.push(undoEntry);
+            alert(JSON.stringify(undoEntry));
         }
     });
 
