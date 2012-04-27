@@ -9,6 +9,7 @@
             .board {
                 table-layout: fixed;
                 border-collapse: collapse;
+                width: 560px;
             }
 
             .board td { 
@@ -44,178 +45,210 @@
                 width: 90px;
             }
 
+            body
+            {
+                display: table;
+            }
+
+            #main
+            {
+                display: table-row;
+            }
+
+            #main section
+            {
+                display: table-cell;
+                padding: 0;
+                margin: 0;
+                vertical-align: top;
+            }
+
+            #main section#score
+            {
+                padding-left: 10px;
+            }
+
+
+
 
         </style>
     </head>
     <body>
-        <table class="board" cellspacing="0" cellpadding=0>
-            <tr>
-                <td class="light square" data-square="a8">
-                    <img data-piece="r" src="images/wikipedia/Chess_rdt45.svg">
-                </td>
-                <td class="dark square"  data-square="b8">
-                    <img data-piece="n" src="images/wikipedia/Chess_ndt45.svg">
-                </td>
-                <td class="light square" data-square="c8">
-                    <img data-piece="b" src="images/wikipedia/Chess_bdt45.svg">
-                </td>
-                <td class="dark square"  data-square="d8">
-                    <img data-piece="q" src="images/wikipedia/Chess_qdt45.svg">
-                </td>
-                <td class="light square" data-square="e8">
-                    <img data-piece="k" src="images/wikipedia/Chess_kdt45.svg">
-                </td>
-                <td class="dark square"  data-square="f8">
-                    <img data-piece="b" src="images/wikipedia/Chess_bdt45.svg">
-                </td>
-                <td class="light square" data-square="g8">
-                    <img data-piece="n" src="images/wikipedia/Chess_ndt45.svg">
-                </td>
-                <td class="dark square"  data-square="h8">
-                    <img data-piece="r" src="images/wikipedia/Chess_rdt45.svg">
-                </td>
-            </tr>
-            <tr>
-                <td class="dark square"  data-square="a7">
-                    <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
-                </td>
-                <td class="light square" data-square="b7">
-                    <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
-                </td>
-                <td class="dark square"  data-square="c7">
-                    <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
-                </td>
-                <td class="light square" data-square="d7">
-                    <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
-                </td>
-                <td class="dark square"  data-square="e7">
-                    <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
-                </td>
-                <td class="light square" data-square="f7">
-                    <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
-                </td>
-                <td class="dark square"  data-square="g7">
-                    <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
-                </td>
-                <td class="light square" data-square="h7">
-                    <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
-                </td>
-            </tr>
-            <tr>
-                <td class="light square" data-square="a6"></td>
-                <td class="dark square"  data-square="b6"></td>
-                <td class="light square" data-square="c6"></td>
-                <td class="dark square"  data-square="d6"></td>
-                <td class="light square" data-square="e6"></td>
-                <td class="dark square"  data-square="f6"></td>
-                <td class="light square" data-square="g6"></td>
-                <td class="dark square"  data-square="h6"></td>
-            </tr>
-            <tr>
-                <td class="dark square"  data-square="a5"></td>
-                <td class="light square" data-square="b5"></td>
-                <td class="dark square"  data-square="c5"></td>
-                <td class="light square" data-square="d5"></td>
-                <td class="dark square"  data-square="e5"></td>
-                <td class="light square" data-square="f5"></td>
-                <td class="dark square"  data-square="g5"></td>
-                <td class="light square" data-square="h4"></td>
-            </tr>
-            <tr>
-                <td class="light square" data-square="a4"></td>
-                <td class="dark square"  data-square="b4"></td>
-                <td class="light square" data-square="c4"></td>
-                <td class="dark square"  data-square="d4"></td>
-                <td class="light square" data-square="e4"></td>
-                <td class="dark square"  data-square="f4"></td>
-                <td class="light square" data-square="g4"></td>
-                <td class="dark square"  data-square="h4"></td>
-            </tr>
-            <tr>
-                <td class="dark square"  data-square="a3"></td>
-                <td class="light square" data-square="b3"></td>
-                <td class="dark square"  data-square="c3"></td>
-                <td class="light square" data-square="d3"></td>
-                <td class="dark square"  data-square="e3"></td>
-                <td class="light square" data-square="f3"></td>
-                <td class="dark square"  data-square="g3"></td>
-                <td class="light square" data-square="h3"></td>
-            </tr>
-            <tr>
-                <td class="light square" data-square="a2">
-                    <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
-                </td>
-                <td class="dark square"  data-square="b2">
-                    <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
-                </td>
-                <td class="light square" data-square="c2">
-                    <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
-                </td>
-                <td class="dark square"  data-square="d2">
-                    <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
-                </td>
-                <td class="light square" data-square="e2">
-                    <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
-                </td>
-                <td class="dark square"  data-square="f2">
-                    <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
-                </td>
-                <td class="light square" data-square="g2">
-                    <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
-                </td>
-                <td class="dark square"  data-square="h2">
-                    <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
-                </td>
-            </tr>
-            <tr>
-                <td class="dark square"  data-square="a1">
-                    <img data-piece="R" src="images/wikipedia/Chess_rlt45.svg">
-                </td>
-                <td class="light square" data-square="b1">
-                    <img data-piece="N" src="images/wikipedia/Chess_nlt45.svg">
-                </td>
-                <td class="dark square"  data-square="c1">
-                    <img data-piece="B" src="images/wikipedia/Chess_blt45.svg">
-                </td>
-                <td class="light square" data-square="d1">
-                    <img data-piece="Q" src="images/wikipedia/Chess_qlt45.svg">
-                </td>
-                <td class="dark square"  data-square="e1">
-                    <img data-piece="K" src="images/wikipedia/Chess_klt45.svg">
-                </td>
-                <td class="light square" data-square="f1">
-                    <img data-piece="B" src="images/wikipedia/Chess_blt45.svg">
-                </td>
-                <td class="dark square"  data-square="g1">
-                    <img data-piece="N" src="images/wikipedia/Chess_nlt45.svg">
-                </td>
-                <td class="light square" data-square="h1">
-                    <img data-piece="R" src="images/wikipedia/Chess_rlt45.svg">
-                </td>
-            </tr>
-        </table>
+        <article id="main">
+            <section id="board">
+                <table class="board" cellspacing="0" cellpadding=0>
+                    <tr>
+                        <td class="light square" data-square="a8">
+                            <img data-piece="r" src="images/wikipedia/Chess_rdt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="b8">
+                            <img data-piece="n" src="images/wikipedia/Chess_ndt45.svg">
+                        </td>
+                        <td class="light square" data-square="c8">
+                            <img data-piece="b" src="images/wikipedia/Chess_bdt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="d8">
+                            <img data-piece="q" src="images/wikipedia/Chess_qdt45.svg">
+                        </td>
+                        <td class="light square" data-square="e8">
+                            <img data-piece="k" src="images/wikipedia/Chess_kdt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="f8">
+                            <img data-piece="b" src="images/wikipedia/Chess_bdt45.svg">
+                        </td>
+                        <td class="light square" data-square="g8">
+                            <img data-piece="n" src="images/wikipedia/Chess_ndt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="h8">
+                            <img data-piece="r" src="images/wikipedia/Chess_rdt45.svg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="dark square"  data-square="a7">
+                            <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
+                        </td>
+                        <td class="light square" data-square="b7">
+                            <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="c7">
+                            <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
+                        </td>
+                        <td class="light square" data-square="d7">
+                            <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="e7">
+                            <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
+                        </td>
+                        <td class="light square" data-square="f7">
+                            <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="g7">
+                            <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
+                        </td>
+                        <td class="light square" data-square="h7">
+                            <img data-piece="p" src="images/wikipedia/Chess_pdt45.svg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="light square" data-square="a6"></td>
+                        <td class="dark square"  data-square="b6"></td>
+                        <td class="light square" data-square="c6"></td>
+                        <td class="dark square"  data-square="d6"></td>
+                        <td class="light square" data-square="e6"></td>
+                        <td class="dark square"  data-square="f6"></td>
+                        <td class="light square" data-square="g6"></td>
+                        <td class="dark square"  data-square="h6"></td>
+                    </tr>
+                    <tr>
+                        <td class="dark square"  data-square="a5"></td>
+                        <td class="light square" data-square="b5"></td>
+                        <td class="dark square"  data-square="c5"></td>
+                        <td class="light square" data-square="d5"></td>
+                        <td class="dark square"  data-square="e5"></td>
+                        <td class="light square" data-square="f5"></td>
+                        <td class="dark square"  data-square="g5"></td>
+                        <td class="light square" data-square="h4"></td>
+                    </tr>
+                    <tr>
+                        <td class="light square" data-square="a4"></td>
+                        <td class="dark square"  data-square="b4"></td>
+                        <td class="light square" data-square="c4"></td>
+                        <td class="dark square"  data-square="d4"></td>
+                        <td class="light square" data-square="e4"></td>
+                        <td class="dark square"  data-square="f4"></td>
+                        <td class="light square" data-square="g4"></td>
+                        <td class="dark square"  data-square="h4"></td>
+                    </tr>
+                    <tr>
+                        <td class="dark square"  data-square="a3"></td>
+                        <td class="light square" data-square="b3"></td>
+                        <td class="dark square"  data-square="c3"></td>
+                        <td class="light square" data-square="d3"></td>
+                        <td class="dark square"  data-square="e3"></td>
+                        <td class="light square" data-square="f3"></td>
+                        <td class="dark square"  data-square="g3"></td>
+                        <td class="light square" data-square="h3"></td>
+                    </tr>
+                    <tr>
+                        <td class="light square" data-square="a2">
+                            <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="b2">
+                            <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
+                        </td>
+                        <td class="light square" data-square="c2">
+                            <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="d2">
+                            <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
+                        </td>
+                        <td class="light square" data-square="e2">
+                            <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="f2">
+                            <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
+                        </td>
+                        <td class="light square" data-square="g2">
+                            <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="h2">
+                            <img data-piece="P" src="images/wikipedia/Chess_plt45.svg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="dark square"  data-square="a1">
+                            <img data-piece="R" src="images/wikipedia/Chess_rlt45.svg">
+                        </td>
+                        <td class="light square" data-square="b1">
+                            <img data-piece="N" src="images/wikipedia/Chess_nlt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="c1">
+                            <img data-piece="B" src="images/wikipedia/Chess_blt45.svg">
+                        </td>
+                        <td class="light square" data-square="d1">
+                            <img data-piece="Q" src="images/wikipedia/Chess_qlt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="e1">
+                            <img data-piece="K" src="images/wikipedia/Chess_klt45.svg">
+                        </td>
+                        <td class="light square" data-square="f1">
+                            <img data-piece="B" src="images/wikipedia/Chess_blt45.svg">
+                        </td>
+                        <td class="dark square"  data-square="g1">
+                            <img data-piece="N" src="images/wikipedia/Chess_nlt45.svg">
+                        </td>
+                        <td class="light square" data-square="h1">
+                            <img data-piece="R" src="images/wikipedia/Chess_rlt45.svg">
+                        </td>
+                    </tr>
+                </table>
 
-        <table class="extra">
-            <tr>
-                <td><img data-piece="P" src="images/wikipedia/Chess_plt45.svg"></td>
-                <td><img data-piece="N" src="images/wikipedia/Chess_nlt45.svg"></td>
-                <td><img data-piece="B" src="images/wikipedia/Chess_blt45.svg"></td>
-                <td><img data-piece="R" src="images/wikipedia/Chess_rlt45.svg"></td>
-                <td><img data-piece="Q" src="images/wikipedia/Chess_qlt45.svg"></td>
-                <td><img data-piece="K" src="images/wikipedia/Chess_klt45.svg"></td>
-                <td rowspan="2">
-                    <img class="trash" src="images/trash.svg">
-                </td>
-            </tr>
-            <tr>
-                <td><img data-piece="p" src="images/wikipedia/Chess_pdt45.svg"></td>
-                <td><img data-piece="n" src="images/wikipedia/Chess_ndt45.svg"></td>
-                <td><img data-piece="b" src="images/wikipedia/Chess_bdt45.svg"></td>
-                <td><img data-piece="r" src="images/wikipedia/Chess_rdt45.svg"></td>
-                <td><img data-piece="q" src="images/wikipedia/Chess_qdt45.svg"></td>
-                <td><img data-piece="k" src="images/wikipedia/Chess_kdt45.svg"></td>
-            </tr>
-        </table>
+                <table class="extra">
+                    <tr>
+                        <td><img data-piece="P" src="images/wikipedia/Chess_plt45.svg"></td>
+                        <td><img data-piece="N" src="images/wikipedia/Chess_nlt45.svg"></td>
+                        <td><img data-piece="B" src="images/wikipedia/Chess_blt45.svg"></td>
+                        <td><img data-piece="R" src="images/wikipedia/Chess_rlt45.svg"></td>
+                        <td><img data-piece="Q" src="images/wikipedia/Chess_qlt45.svg"></td>
+                        <td><img data-piece="K" src="images/wikipedia/Chess_klt45.svg"></td>
+                        <td rowspan="2">
+                            <img class="trash" src="images/trash.svg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img data-piece="p" src="images/wikipedia/Chess_pdt45.svg"></td>
+                        <td><img data-piece="n" src="images/wikipedia/Chess_ndt45.svg"></td>
+                        <td><img data-piece="b" src="images/wikipedia/Chess_bdt45.svg"></td>
+                        <td><img data-piece="r" src="images/wikipedia/Chess_rdt45.svg"></td>
+                        <td><img data-piece="q" src="images/wikipedia/Chess_qdt45.svg"></td>
+                        <td><img data-piece="k" src="images/wikipedia/Chess_kdt45.svg"></td>
+                    </tr>
+                </table>
+            </section>
+            <section id="score">
+                <button><img src="images/tango/edit-undo.svg"></button>
+            </section>
+        </article>
 
         <footer><a href="image_attribution.html">Image Attribution</a></footer>
     </body>    
