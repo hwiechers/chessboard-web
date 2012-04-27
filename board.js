@@ -34,7 +34,6 @@ $(document).ready(function() {
             $this.append(toPlace);
 
             undoStack.push(undoEntry);
-            alert(JSON.stringify(undoEntry));
         }
     });
 
