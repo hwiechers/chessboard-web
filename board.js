@@ -52,14 +52,15 @@ $(document).ready(function() {
 
         var undoEntry = undoStack.pop();
         $.each(undoEntry, function (index, value) {
-            if (value.to !== null) {
-                var piece = $('[data-square=' + value.to + '] img');
-                if (value.from !== null) {
-                    piece.appendTo($('[data-square=' + value.from + ']'))
-                }
-                else {
-                    piece.remove();
-                }
+            var piece = (value.to !== null
+                 ? $('[data-square=' + value.to + '] img')
+                 : $('.extra [data-piece=' + value.piece + ']').clone());
+
+            if (value.from !== null) {
+                piece.appendTo($('[data-square=' + value.from + ']'));
+            }
+            else {
+                piece.remove();
             }
         });
     });
