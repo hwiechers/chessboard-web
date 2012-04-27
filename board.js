@@ -45,4 +45,23 @@ $(document).ready(function() {
             }
         }
     });
+
+    $('#undo').on('click', function() {
+        if (undoStack.length === 0) {
+            return;
+        }
+
+        var undoEntry = undoStack.pop();
+        $.each(undoEntry, function (index, value) {
+            if (value.to !== null) {
+                var piece = $('[data-square=' + value.to + '] img');
+                if (value.from !== null) {
+                    piece.appendTo($('[data-square=' + value.from + ']'))
+                }
+                else {
+                    piece.remove();
+                }
+            }
+        });
+    });
 });
