@@ -1,7 +1,8 @@
 $(document).ready(function() {
     var undoStack = [];
+    var dragSettings = {revert: true, revertDuration: 0};
 
-    $('.board img').draggable({revert: true, revertDuration: 0});
+    $('.board img').draggable(dragSettings);
     $('.extra img:not(.trash)').draggable({
         revert: true, 
         revertDuration: 0, 
@@ -29,7 +30,7 @@ $(document).ready(function() {
             }
 
             var toPlace = (ui.draggable.closest('.extra').length > 0 
-                           ? ui.draggable.clone()  
+                           ? ui.draggable.clone()
                            : ui.draggable); 
             $this.append(toPlace);
 
@@ -54,7 +55,9 @@ $(document).ready(function() {
         $.each(undoEntry, function (index, value) {
             var piece = (value.to !== null
                  ? $('[data-square=' + value.to + '] img')
-                 : $('.extra [data-piece=' + value.piece + ']').clone());
+                 : $('.extra [data-piece=' + value.piece + ']')
+                    .clone()
+                    .draggable(dragSettings));
 
             if (value.from !== null) {
                 piece.appendTo($('[data-square=' + value.from + ']'));
