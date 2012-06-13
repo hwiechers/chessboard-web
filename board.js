@@ -12,20 +12,24 @@ $(document).ready(function() {
             var draggable = ui.draggable;
 
             var $this = $(this);
-            var thisSquare = $this.data('square');
+            var here = $this.data('square');
+            var from = draggable.closest('.square').data('square');
+            if (from === here) {
+                return;
+            }
 
             var undoEntry = [];
             undoEntry.push({
-                piece:draggable.data('piece'),
-                from:draggable.closest('.square').data('square'),
-                to:thisSquare});
+                piece : draggable.data('piece'),
+                from  : from,
+                to    : here});
 
             var oldPiece = $this.children('img');
             if (oldPiece.length > 0) {
                 undoEntry.push({
-                    piece:oldPiece.data('piece'),
-                    from:thisSquare,
-                    to:null});
+                    piece : oldPiece.data('piece'),
+                    from  : here,
+                    to    : null});
                 oldPiece.remove();
             }
 
