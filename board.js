@@ -1,6 +1,8 @@
 $(document).ready(function() {
     var undoStack = [];
-    var dragSettings = {revert: true, revertDuration: 0};
+    var dragSettings = {revert: true,
+                        revertDuration: 0,
+                        zIndex: 1};
 
     $('.board img').draggable(dragSettings);
     $('.extra img:not(.trash)').draggable({
