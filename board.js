@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var undoStack = [];
+    var redoStack = [];
     var dragSettings = {revert: true,
                         revertDuration: 0,
                         zIndex: 1};
@@ -41,6 +42,7 @@ $(document).ready(function() {
             $this.append(toPlace);
 
             undoStack.push(undoEntry);
+            redoStack.length = 0;
         }
     });
 
@@ -72,5 +74,25 @@ $(document).ready(function() {
                 piece.remove();
             }
         });
+        redoStack.push(undoEntry);
+    });
+
+    $('#redo').on('click', function() {
+        if (redoStack.length === 0) {
+            return;
+        }
+
+        var redoEntry = redoStack.pop();
+        $.each(redoEntry, function (index, value) {
+            var piece = $('[data-square=' + value.from + '] img');
+
+            if (value.to === null) {
+                piece.remove();
+            }
+            else {
+                piece.appendTo($('[data-square=' + value.to + ']'));
+            }
+        });
+        undoStack.push(redoEntry);
     });
 });
