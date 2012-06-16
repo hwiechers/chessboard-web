@@ -5,6 +5,18 @@ $(document).ready(function() {
                         revertDuration: 0,
                         zIndex: 1};
 
+    square = function(name) {
+        return $('[data-square=' + name + ']');
+    }
+
+    pieceOn = function(name) {
+        return $('[data-square=' + name + '] img');
+    }
+
+    extra = function(name) {
+        return $('.extra [data-piece=' + name + ']');
+    }
+
     $('.board img').draggable(dragSettings);
     $('.extra img:not(.trash)').draggable({
         revert: true, 
@@ -60,13 +72,13 @@ $(document).ready(function() {
         var undoEntry = undoStack.pop();
         $.each(undoEntry, function (index, value) {
             var piece = (value.to !== null
-                 ? $('[data-square=' + value.to + '] img')
-                 : $('.extra [data-piece=' + value.piece + ']')
+                 ? pieceOn(value.to)
+                 : extra(value.piece)
                     .clone()
                     .draggable(dragSettings));
 
             if (value.from !== null) {
-                piece.appendTo($('[data-square=' + value.from + ']'));
+                piece.appendTo(square(value.from));
             }
             else {
                 piece.remove();
@@ -89,13 +101,13 @@ $(document).ready(function() {
         var redoEntry = redoStack.pop();
         redoEntry.forEach(function(item) {
             moves.push({
-                piece : $('[data-square=' + item.from + '] img'),
-                to    : item.to ? $('[data-square=' + item.to + ']') : null
+                piece : pieceOn(item.from),
+                to    : square(item.to)
             });
         });
 
         moves.forEach(function(item) {
-            if (item.to) {
+            if (item.to.length > 0) {
                 item.piece.appendTo(item.to);
             }
             else {
