@@ -116,5 +116,6 @@ $(document).ready(function() {
         });
 
         undoStack.push(redoEntry);
+        $('#undo')[0].disabled = false;
     });
 });
