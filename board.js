@@ -43,6 +43,8 @@ $(document).ready(function() {
 
             undoStack.push(undoEntry);
             redoStack.length = 0;
+
+            $('#undo')[0].disabled = false;
         }
     });
 
@@ -55,10 +57,6 @@ $(document).ready(function() {
     });
 
     $('#undo').on('click', function() {
-        if (undoStack.length === 0) {
-            return;
-        }
-
         var undoEntry = undoStack.pop();
         $.each(undoEntry, function (index, value) {
             var piece = (value.to !== null
@@ -75,6 +73,10 @@ $(document).ready(function() {
             }
         });
         redoStack.push(undoEntry);
+
+        if (undoStack.length === 0) {
+            $('#undo')[0].disabled = true;
+        }
     });
 
     $('#redo').on('click', function() {
