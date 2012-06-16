@@ -82,17 +82,25 @@ $(document).ready(function() {
             return;
         }
 
-        var redoEntry = redoStack.pop();
-        $.each(redoEntry, function (index, value) {
-            var piece = $('[data-square=' + value.from + '] img');
+        var moves = [];
 
-            if (value.to === null) {
-                piece.remove();
+        var redoEntry = redoStack.pop();
+        redoEntry.forEach(function(item) {
+            moves.push({
+                piece : $('[data-square=' + item.from + '] img'),
+                to    : item.to ? $('[data-square=' + item.to + ']') : null
+            });
+        });
+
+        moves.forEach(function(item) {
+            if (item.to) {
+                item.piece.appendTo(item.to);
             }
             else {
-                piece.appendTo($('[data-square=' + value.to + ']'));
+                item.piece.remove();
             }
         });
+
         undoStack.push(redoEntry);
     });
 });
