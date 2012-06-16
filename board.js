@@ -70,15 +70,19 @@ $(document).ready(function() {
 
     $('#undo').on('click', function() {
         var undoEntry = undoStack.pop();
-        $.each(undoEntry, function (index, value) {
-            var piece = (value.to !== null
-                 ? pieceOn(value.to)
-                 : extra(value.piece)
+        undoEntry.forEach(function (item) {
+            var piece = item.piece;
+            var to    = item.to;
+            var from  = item.from;
+
+            var piece = (to !== null
+                 ? pieceOn(to)
+                 : extra(piece)
                     .clone()
                     .draggable(dragSettings));
 
-            if (value.from !== null) {
-                piece.appendTo(square(value.from));
+            if (from !== null) {
+                piece.appendTo(square(from));
             }
             else {
                 piece.remove();
@@ -107,11 +111,14 @@ $(document).ready(function() {
         });
 
         moves.forEach(function(item) {
-            if (item.to.length > 0) {
-                item.piece.appendTo(item.to);
+            var to = item.to;
+            var piece = item.piece;
+
+            if (to.length > 0) {
+                piece.appendTo(to);
             }
             else {
-                item.piece.remove();
+                piece.remove();
             }
         });
 
