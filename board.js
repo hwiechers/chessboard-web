@@ -55,6 +55,7 @@ $(document).ready(function() {
 
             undoStack.push(undoEntry);
             redoStack.length = 0;
+            $('#redo')[0].disabled = true;
 
             $('#undo')[0].disabled = false;
         }
@@ -89,6 +90,7 @@ $(document).ready(function() {
             }
         });
         redoStack.push(undoEntry);
+        $('#redo')[0].disabled = false;
 
         if (undoStack.length === 0) {
             $('#undo')[0].disabled = true;
@@ -96,10 +98,6 @@ $(document).ready(function() {
     });
 
     $('#redo').on('click', function() {
-        if (redoStack.length === 0) {
-            return;
-        }
-
         var moves = [];
 
         var redoEntry = redoStack.pop();
@@ -124,5 +122,9 @@ $(document).ready(function() {
 
         undoStack.push(redoEntry);
         $('#undo')[0].disabled = false;
+
+        if (redoStack.length === 0) {
+            $('#redo')[0].disabled = true;
+        }
     });
 });
