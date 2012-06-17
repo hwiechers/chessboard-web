@@ -20,6 +20,10 @@ $(document).ready(function() {
     var undoButton = $('#undo');
     var redoButton = $('#redo');
 
+    //Disable buttons since refreshing page sometimes retains their state.
+    undoButton.prop('disabled', true);
+    redoButton.prop('disabled', true);
+
     $('.board img').draggable(dragSettings);
     $('.extra img:not(.trash)').draggable({
         revert: true, 
