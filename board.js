@@ -54,10 +54,10 @@ $(document).ready(function() {
             $this.append(toPlace);
 
             undoStack.push(undoEntry);
+            $('#undo').prop('disabled', false);
+
             redoStack.length = 0;
             $('#redo').prop('disabled', true);
-
-            $('#undo').prop('disabled', false);
         }
     });
 
