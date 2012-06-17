@@ -116,7 +116,7 @@ $(document).ready(function() {
         });
 
         moves.forEach(function(item) {
-            var to = item.to;
+            var to    = item.to;
             var piece = item.piece;
 
             if (to.length > 0) {
