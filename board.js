@@ -17,6 +17,9 @@ $(document).ready(function() {
         return $('.extra [data-piece=' + name + ']');
     }
 
+    var undoButton = $('#undo');
+    var redoButton = $('#redo');
+
     $('.board img').draggable(dragSettings);
     $('.extra img:not(.trash)').draggable({
         revert: true, 
@@ -54,10 +57,10 @@ $(document).ready(function() {
             $this.append(toPlace);
 
             undoStack.push(undoEntry);
-            $('#undo').prop('disabled', false);
+            undoButton.prop('disabled', false);
 
             redoStack.length = 0;
-            $('#redo').prop('disabled', true);
+            redoButton.prop('disabled', true);
         }
     });
 
@@ -69,7 +72,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#undo').on('click', function() {
+    undoButton.on('click', function() {
         var undoEntry = undoStack.pop();
         undoEntry.forEach(function (item) {
             var piece = item.piece;
@@ -90,14 +93,14 @@ $(document).ready(function() {
             }
         });
         redoStack.push(undoEntry);
-        $('#redo').prop('disabled', false);
+        redoButton.prop('disabled', false);
 
         if (undoStack.length === 0) {
-            $('#undo').prop('disabled', true);
+            undoButton.prop('disabled', true);
         }
     });
 
-    $('#redo').on('click', function() {
+    redoButton.on('click', function() {
         var moves = [];
 
         var redoEntry = redoStack.pop();
@@ -121,10 +124,10 @@ $(document).ready(function() {
         });
 
         undoStack.push(redoEntry);
-        $('#undo').prop('disabled', false);
+        undoButton.prop('disabled', false);
 
         if (redoStack.length === 0) {
-            $('#redo').prop('disabled', true);
+            redoButton.prop('disabled', true);
         }
     });
 });
