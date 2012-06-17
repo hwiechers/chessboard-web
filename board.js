@@ -5,15 +5,15 @@ $(document).ready(function() {
                         revertDuration: 0,
                         zIndex: 1};
 
-    square = function(name) {
+    var square = function(name) {
         return $('[data-square=' + name + ']');
     }
 
-    pieceOn = function(name) {
+    var pieceOn = function(name) {
         return $('[data-square=' + name + '] img');
     }
 
-    extra = function(name) {
+    var extra = function(name) {
         return $('.extra [data-piece=' + name + ']');
     }
 
