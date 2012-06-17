@@ -55,9 +55,9 @@ $(document).ready(function() {
 
             undoStack.push(undoEntry);
             redoStack.length = 0;
-            $('#redo')[0].disabled = true;
+            $('#redo').prop('disabled', true);
 
-            $('#undo')[0].disabled = false;
+            $('#undo').prop('disabled', false);
         }
     });
 
@@ -90,10 +90,10 @@ $(document).ready(function() {
             }
         });
         redoStack.push(undoEntry);
-        $('#redo')[0].disabled = false;
+        $('#redo').prop('disabled', false);
 
         if (undoStack.length === 0) {
-            $('#undo')[0].disabled = true;
+            $('#undo').prop('disabled', true);
         }
     });
 
@@ -121,10 +121,10 @@ $(document).ready(function() {
         });
 
         undoStack.push(redoEntry);
-        $('#undo')[0].disabled = false;
+        $('#undo').prop('disabled', false);
 
         if (redoStack.length === 0) {
-            $('#redo')[0].disabled = true;
+            $('#redo').prop('disabled', true);
         }
     });
 });
