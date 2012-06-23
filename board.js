@@ -1,63 +1,63 @@
-/*global $, document*/
-'use strict';
+$(document).ready(function() {
+    var undoStack = [];
+    var redoStack = [];
+    var dragSettings = {revert: true,
+                        revertDuration: 0,
+                        zIndex: 1};
 
-$(document).ready(function () {
-    var undoStack, redoStack, pieceDragSettings, extraDragSettings, undoButton, redoButton;
-    undoStack = [];
-    redoStack = [];
-    pieceDragSettings = {revert: true, revertDuration: 0, zIndex: 1};
-    extraDragSettings = {revert: true, revertDuration: 0, zIndex: 1,
-        helper: 'clone'};
-
-    function square(name) {
+    var square = function(name) {
         return $('[data-square=' + name + ']');
     }
 
-    function pieceOn(name) {
+    var pieceOn = function(name) {
         return $('[data-square=' + name + '] img');
     }
 
-    function extra(name) {
+    var extra = function(name) {
         return $('.extra [data-piece=' + name + ']');
     }
 
-    undoButton = $('#undo');
-    redoButton = $('#redo');
+    var undoButton = $('#undo');
+    var redoButton = $('#redo');
 
     //Disable buttons since refreshing page sometimes retains their state.
     undoButton.prop('disabled', true);
     redoButton.prop('disabled', true);
 
-    $('.board img').draggable(pieceDragSettings);
-    $('.extra img:not(.trash)').draggable(extraDragSettings);
+    $('.board img').draggable(dragSettings);
+    $('.extra img:not(.trash)').draggable({
+        revert: true, 
+        revertDuration: 0, 
+        helper: 'clone'});
     $('.board td').droppable({
-        drop: function (event, ui) {
-            var $this, draggable, here, from, undoEntry, oldPiece, toPlace;
+        drop: function(event, ui) {
+            var draggable = ui.draggable;
 
-            $this = $(this);
-            draggable = ui.draggable;
-            here = $this.data('square');
-            from = draggable.closest('.square').data('square');
-
+            var $this = $(this);
+            var here = $this.data('square');
+            var from = draggable.closest('.square').data('square');
             if (from === here) {
                 return;
             }
 
-            undoEntry = [];
-            undoEntry.push({piece: draggable.data('piece'), from: from,
-                to: here});
+            var undoEntry = [];
+            undoEntry.push({
+                piece : draggable.data('piece'),
+                from  : from,
+                to    : here});
 
-            oldPiece = $this.children('img');
+            var oldPiece = $this.children('img');
             if (oldPiece.length > 0) {
-                undoEntry.push({piece: oldPiece.data('piece'),
-                    from: here,
-                    to: null});
+                undoEntry.push({
+                    piece : oldPiece.data('piece'),
+                    from  : here,
+                    to    : null});
                 oldPiece.remove();
             }
 
-            toPlace = (ui.draggable.closest('.extra').length > 0 ?
-                    ui.draggable.clone() :
-                    ui.draggable);
+            var toPlace = (ui.draggable.closest('.extra').length > 0 
+                           ? ui.draggable.clone()
+                           : ui.draggable); 
             $this.append(toPlace);
 
             undoStack.push(undoEntry);
@@ -69,32 +69,31 @@ $(document).ready(function () {
     });
 
     $('img.trash').droppable({
-        drop: function (event, ui) {
+        drop: function(event, ui) {
             if (ui.draggable.closest('.board').length > 0) {
                 ui.draggable.remove();
             }
         }
     });
 
-    undoButton.on('click', function () {
+    undoButton.on('click', function() {
         var undoEntry = undoStack.pop();
         undoEntry.forEach(function (item) {
-            var piece, to, from, pieceElement;
+            var piece = item.piece;
+            var to    = item.to;
+            var from  = item.from;
 
-            piece = item.piece;
-            to = item.to;
-            from = item.from;
-
-            pieceElement = (to !== null
+            var piece = (to !== null
                  ? pieceOn(to)
                  : extra(piece)
                     .clone()
-                    .draggable(pieceDragSettings));
+                    .draggable(dragSettings));
 
             if (from !== null) {
-                pieceElement.appendTo(square(from));
-            } else {
-                pieceElement.remove();
+                piece.appendTo(square(from));
+            }
+            else {
+                piece.remove();
             }
         });
         redoStack.push(undoEntry);
@@ -105,27 +104,25 @@ $(document).ready(function () {
         }
     });
 
-    redoButton.on('click', function () {
-        var redoEntry, moves;
+    redoButton.on('click', function() {
+        var moves = [];
 
-        redoEntry = redoStack.pop();
-
-        moves = [];
-        redoEntry.forEach(function (item) {
+        var redoEntry = redoStack.pop();
+        redoEntry.forEach(function(item) {
             moves.push({
                 piece : pieceOn(item.from),
                 to    : square(item.to)
             });
         });
 
-        moves.forEach(function (item) {
-            var to, piece;
-            to = item.to;
-            piece = item.piece;
+        moves.forEach(function(item) {
+            var to    = item.to;
+            var piece = item.piece;
 
             if (to.length > 0) {
                 piece.appendTo(to);
-            } else {
+            }
+            else {
                 piece.remove();
             }
         });
