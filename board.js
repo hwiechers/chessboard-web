@@ -7,15 +7,15 @@ $(document).ready(function() {
 
     var square = function(name) {
         return $('[data-square=' + name + ']');
-    }
+    };
 
     var pieceOn = function(name) {
         return $('[data-square=' + name + '] img');
-    }
+    };
 
     var extra = function(name) {
         return $('.extra [data-piece=' + name + ']');
-    }
+    };
 
     var undoButton = $('#undo');
     var redoButton = $('#redo');
@@ -26,8 +26,8 @@ $(document).ready(function() {
 
     $('.board img').draggable(dragSettings);
     $('.extra img:not(.trash)').draggable({
-        revert: true, 
-        revertDuration: 0, 
+        revert: true,
+        revertDuration: 0,
         helper: 'clone'});
     $('.board td').droppable({
         drop: function(event, ui) {
@@ -55,9 +55,9 @@ $(document).ready(function() {
                 oldPiece.remove();
             }
 
-            var toPlace = (ui.draggable.closest('.extra').length > 0 
-                           ? ui.draggable.clone()
-                           : ui.draggable); 
+            var toPlace = (ui.draggable.closest('.extra').length > 0 ?
+                           ui.draggable.clone() :
+                           ui.draggable);
             $this.append(toPlace);
 
             undoStack.push(undoEntry);
@@ -83,17 +83,15 @@ $(document).ready(function() {
             var to    = item.to;
             var from  = item.from;
 
-            var piece = (to !== null
-                 ? pieceOn(to)
-                 : extra(piece)
-                    .clone()
-                    .draggable(dragSettings));
+            var pieceElement = (to !== null ?
+                                pieceOn(to) :
+                                extra(piece).clone().draggable(dragSettings));
 
             if (from !== null) {
-                piece.appendTo(square(from));
+                pieceElement.appendTo(square(from));
             }
             else {
-                piece.remove();
+                pieceElement.remove();
             }
         });
         redoStack.push(undoEntry);
