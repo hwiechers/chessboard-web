@@ -70,9 +70,24 @@ $(document).ready(function() {
 
     $('img.trash').droppable({
         drop: function(event, ui) {
-            if (ui.draggable.closest('.board').length > 0) {
-                ui.draggable.remove();
+            var draggable = ui.draggable;
+            var from = draggable.closest('.square').data('square');
+
+            if (draggable.closest('.board').length > 0) {
+                draggable.remove();
             }
+
+            var undoEntry = [];
+            undoEntry.push({
+                piece : draggable.data('piece'),
+                from  : from,
+                to    : null});
+
+            undoStack.push(undoEntry);
+            undoButton.prop('disabled', false);
+
+            redoStack.length = 0;
+            redoButton.prop('disabled', true);
         }
     });
 
