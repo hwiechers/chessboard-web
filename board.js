@@ -56,7 +56,7 @@ $(document).ready(function() {
             }
 
             var toPlace = (ui.draggable.closest('.extra').length > 0 ?
-                           ui.draggable.clone() :
+                           ui.draggable.clone().draggable(dragSettings) :
                            ui.draggable);
             $this.append(toPlace);
 
